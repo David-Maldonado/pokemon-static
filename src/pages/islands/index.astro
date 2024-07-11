@@ -1,0 +1,32 @@
+---
+import { Counter } from "@components/Counter";
+import MainLayout from "@layouts/MainLayout.astro";
+import Title from "@components/shared/Title.astro";
+
+const counterValue: number = 20; 
+
+---
+<MainLayout title="Favoritos">
+<Title>Islas</Title>
+<br/>
+
+<div
+
+style={{
+    height:'2000px',
+    backgroundColor: 'red',
+    opacity: 0.4
+
+}}>
+
+</div>
+<!-- <Counter client:only="solid-js"/>  Esta directiva solo carga si el cliente es solid-js -->
+<!-- directivas de astro para cargar para determinar momento de cargar js . Esta carga el js solo si el componente es visible -->
+ <!-- las directivas transition:persist de abajo se usaron juntos para que 
+ al usar el component y le des la descripcion, en este caso counter, sea el mismo y persisitir sus valores, pasarse el props entre los mismos -->
+<Counter 
+
+transition:persist-props
+transition:persist="counter"
+client:visible initValue={counterValue} />
+</MainLayout>

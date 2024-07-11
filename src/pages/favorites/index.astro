@@ -1,9 +1,21 @@
 ---
+import { Counter } from "@components/Counter";
+import { FavoritePokemons } from "@components/pokemons/FavoritePokemons";
 import MainLayout from "@layouts/MainLayout.astro";
-import Title from "src/shared/Title.astro";
+import Title from "@components/shared/Title.astro";
 
 
 ---
 <MainLayout title="Favoritos">
 <Title>Favoritos</Title>
+
+<!-- el component lo va a renderizar el cliente, el server no hara nada -->
+<FavoritePokemons  client:only="solid-js" />
+
+
+<!-- <Counter
+transition:persist="counter"
+transition:persist-props
+client:visible initValue =
+/> -->
 </MainLayout>
